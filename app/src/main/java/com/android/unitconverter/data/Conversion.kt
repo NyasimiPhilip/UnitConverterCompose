@@ -1,4 +1,4 @@
-package com.android.unitconverter
+package com.android.unitconverter.data
 
 data class Conversion(
     val id : Int,

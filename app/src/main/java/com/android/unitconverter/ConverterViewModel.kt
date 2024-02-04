@@ -1,6 +1,7 @@
 package com.android.unitconverter
 
 import androidx.lifecycle.ViewModel
+import com.android.unitconverter.data.Conversion
 
 class ConverterViewModel : ViewModel() {
 

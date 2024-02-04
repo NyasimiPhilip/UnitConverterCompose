@@ -1,4 +1,4 @@
-package com.android.unitconverter
+package com.android.unitconverter.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -25,10 +25,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
+import com.android.unitconverter.data.Conversion
 
 // Composable function for a Conversion Menu
 @Composable
-fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier) {
+fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier, convert: (Conversion)-> Unit) {
 
     // State variables to manage the display text, text field size, and dropdown expansion
     var displayText by remember { mutableStateOf("Select the conversion type") }
@@ -88,6 +89,7 @@ fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier) {
                     // Set the selected conversion and close the dropdown
                     displayText = conversion.description
                     expanded = false
+                    convert(conversion)
                 }
             )
         }
