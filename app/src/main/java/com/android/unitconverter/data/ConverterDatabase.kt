@@ -8,13 +8,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 // Declare a RoomDatabase with an entity ConversionResult and version 1
-@Database(entities = [ConversionResult::class], version = 1)
+@Database(entities = [ConversionResult::class], version = 1,exportSchema = false)
 abstract class ConverterDatabase : RoomDatabase() {
 
     // Declare an abstract property representing the DAO (Data Access Object) for the database
     abstract val converterDAO: ConverterDAO
 
-    // Companion object for providing a singleton instance of the database
+    /* Companion object for providing a singleton instance of the database this is is replaced by the App MoDULE
     companion object {
 
         // Volatile ensures that INSTANCE is always up-to-date and visible to other threads
@@ -43,5 +43,5 @@ abstract class ConverterDatabase : RoomDatabase() {
                 return instance
             }
         }
-    }
+    }*/
 }
