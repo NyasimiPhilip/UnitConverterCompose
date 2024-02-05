@@ -25,7 +25,12 @@ fun BaseScreen(
     Column(
         modifier = modifier.padding( 30.dp)
     ){
-        TopScreen(list){message1,message2 ->
+        TopScreen(list,
+            converterViewModel.selectedConversion,
+            converterViewModel.inputText,
+            converterViewModel.typedValue
+            )
+        {message1,message2 ->
             converterViewModel.addResult(message1, message2)
         }
         Spacer(modifier = modifier.height(20.dp))

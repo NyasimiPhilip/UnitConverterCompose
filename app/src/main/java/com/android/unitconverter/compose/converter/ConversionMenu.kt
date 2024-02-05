@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
@@ -32,7 +33,7 @@ import com.android.unitconverter.data.Conversion
 fun ConversionMenu(list: List<Conversion>, modifier: Modifier = Modifier, convert: (Conversion)-> Unit) {
 
     // State variables to manage the display text, text field size, and dropdown expansion
-    var displayText by remember { mutableStateOf("Select the conversion type") }
+    var displayText by rememberSaveable { mutableStateOf("Select the conversion type") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
     var expanded by remember { mutableStateOf(false) }
 
