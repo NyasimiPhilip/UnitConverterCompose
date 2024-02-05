@@ -1,4 +1,4 @@
-package com.android.unitconverter.compose
+package com.android.unitconverter.compose.history
 
 import androidx.compose.runtime.Composable
 

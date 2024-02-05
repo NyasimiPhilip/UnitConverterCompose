@@ -1,4 +1,4 @@
-package com.android.unitconverter.compose
+package com.android.unitconverter.compose.converter
 
 import android.content.Context
 import android.widget.Toast

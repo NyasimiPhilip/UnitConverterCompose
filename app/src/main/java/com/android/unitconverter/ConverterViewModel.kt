@@ -1,9 +1,14 @@
 package com.android.unitconverter
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.android.unitconverter.data.Conversion
+import com.android.unitconverter.data.ConversionResult
+import com.android.unitconverter.data.ConverterRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class ConverterViewModel : ViewModel() {
+class ConverterViewModel(private val repository: ConverterRepository) : ViewModel() {
 
     fun getConversions() = listOf(
         Conversion(1, "Pounds to Kilograms","lbs", "kg", 0.453592),
@@ -13,4 +18,9 @@ class ConverterViewModel : ViewModel() {
         Conversion(5, "Miles to Kilometers","mi", "km", 1.60934),
         Conversion(1, "Kilometers to Miles","km", "mi", 0.621371)
         )
+    fun addResult(message1: String, message2: String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.insertResult(ConversionResult(0, message1, message2))
+        }
+    }
 }
